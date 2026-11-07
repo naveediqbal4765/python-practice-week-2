@@ -15,6 +15,6 @@ emails = [" AMNA@noorfoods.pk ", "   ", "bilal.traders"]
 
 for email in emails:
     try:
-        print(clean_email(email))
+        (clean_email(email))
     except ValueError as error:
         print(error)

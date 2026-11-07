@@ -14,3 +14,4 @@ for x in totals:
 newList = "+".join(newList)
 
 print(f"{newList} = {sum(totals)}")
+# print(type(newList))

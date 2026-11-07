@@ -12,20 +12,17 @@
 # What would the error have told you without your extra information?
 
 lines = ["A101,4500", "A102,abc", "A103,2300"]
-newList = []
-def load_totals(lines):
-   
-    for x, line in enumerate(lines):
-        strID, total = lines.split(",")
-    try:
-        convert = int(total)
-        newList.append(convert)
-        print(newList)
-    except ValueError:
-         return ("not a number")
-         
 
-    try:
-        print(load_totals(lines))
-    except ValueError as error:
-        print(f"{error}")
+def loadTotals(lines):
+    newList = []
+    for index, line in enumerate(lines, start=1):
+        _, total = line.split(",")  
+
+        try:
+            newList.append(int(total))
+        except ValueError:
+             return (f"could not load file: line {index}: total '{total}' is not a whole number")
+        
+    return newList
+
+print(loadTotals(lines))

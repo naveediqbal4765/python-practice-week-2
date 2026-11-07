@@ -5,13 +5,13 @@
 
 def validate_order(order):
     if "id" not in order:
-        raise ValueError(f"{order} aint got an id")
-    elif order["total"] == isinstance(order["total"], int):
-        raise ValueError(f"{order} this order aint got a number")
+        raise ValueError(f"Order {index}: missing id")
+    elif not isinstance(order["total"], int):
+        raise ValueError(f"Order {order["id"]}: total must be a number")
     elif int(order["total"]) < 0:
-        raise ValueError(f"{order} this order is in minus")
+        raise ValueError(f"{order["id"]} total must be more than 0")
     elif order["status"] != "pending" and order["status"] != "delivered" and order["status"] != "cancelled":
-        raise ValueError(f"{order} has not a proper status")
+        raise ValueError(f"{order["id"]}: unknown status {order["status"]} ")
     
     return order        
 
@@ -25,10 +25,15 @@ orders = [
     {"id": "A106", "total": 6100, "status": "pending"},
 ]
 
-for order in orders:
+valid = 0
+total = 0
+for index, order in enumerate(orders, start=1):
+    total += 1 
     try:
-        print(validate_order(order))
+        validate_order(order)
+        valid += 1
     except ValueError as error:
         print(error)
         
+print(f"{valid} out of {total} are valid\n")
 

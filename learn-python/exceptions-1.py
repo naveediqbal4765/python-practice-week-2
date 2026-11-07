@@ -9,5 +9,5 @@ textList = ["42", " 7 ", "4.5", "abc" , ""]
 for x in textList:
     try:
         print(to_int(x))
-    except:  # noqa: E722
-        print(f"{x} is not a whole number")
+    except ValueError:
+        print(None)
