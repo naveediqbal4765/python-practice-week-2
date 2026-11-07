@@ -1,4 +1,5 @@
 #  A product model. Create a Product model with a name of at least 2 characters, 
+# a price greater than 0 and in_stock, a boolean that's True by default. Create one '
 # 'valid product and print it. Then try a price of -50, then a blank name, and print each error's 
 # field and message.
 

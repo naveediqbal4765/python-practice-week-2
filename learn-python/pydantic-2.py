@@ -1,3 +1,6 @@
+# Checking a file of rows. Using your Order model from this page, check each row below. 
+# Keep the valid orders in a list, and print a line for each bad row that names the row number and 
+# the fields with problems:
 from enum import StrEnum
 
 from pydantic import BaseModel, Field, ValidationError
