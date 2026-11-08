@@ -1,18 +1,14 @@
-# A safe discount. Write apply_discount(prices, rate) that returns a new list of discounted prices 
-# and leaves the original list unchanged. 
-# Test it with [1000, 2500, 400] and 0.1, then print both lists to prove the original didn't change.
+# 2. Cleaning names. Loop over [" amna ", "BILAL", " zara khan"] and 
+# build a new list of cleaned names using .strip() and .title().
+# Print it (expected: ['Amna', 'Bilal', 'Zara Khan']). 
 
-def apply_discount(prices, rate):
-    price = prices.copy()
+names = [" amna ", "BILAL", " zara khan"]
+cleaned = []
 
-    for i,x in enumerate(price):
-        discounted = x - rate
-        price[i] = discounted
-    
-    return price
+for name in names:
+    cleaned.append(name.strip().title())
 
-rate = 0.1
-prices = [1000, 2500, 400]
+print(cleaned)
 
-print(prices)
-print(f"Discounted prices:{apply_discount(prices, rate)}")
+# Why do you need a new list instead of changing each string where it is?
+# Strings are immutable so strip and title cant change the original
